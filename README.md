@@ -3,9 +3,9 @@
 This is a collection of ~~hacky scripts~~ tools for images, intended for my personal use.
 Currently this consists of:
 
-- hash: Compute the difference hash (d-hash) of an image
-- diff: Compare two images using SSIM
-- rmdup: Delete all duplicate images in a directory
+- hash: Compute the [difference hash (d-hash)](https://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) of an image.
+- diff: Compare two images using [SSIM](https://en.wikipedia.org/wiki/Structural_similarity).
+- rmdup: Delete all duplicate images in a directory.
 
 ## Instructions
 
