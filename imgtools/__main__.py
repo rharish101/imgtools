@@ -28,7 +28,7 @@ dhash_parser.add_argument(
     metavar="IMAGE",
     type=Path,
     nargs="+",
-    help="path to the input image(s)",
+    help="path to an input image",
 )
 dhash_parser.add_argument(
     "-b", "--bits", type=int, default=64, help="number of bits in the hash"
