@@ -3,7 +3,7 @@
 from argparse import Namespace
 from multiprocessing import Pool
 from pathlib import Path
-from typing import Final, Optional
+from typing import Final, Iterator, Optional
 from warnings import warn
 
 import numpy as np
@@ -23,9 +23,7 @@ def load_img(
     """Load the image given the path and return the image info.
 
     The info for each image is a tuple containing the input path, the hash of
-    the image, and the no. of pixels in the image. The input path is returned
-    again, as this function is to be used as a separate process using
-    `multiprocessing.Pool`.
+    the image, and the no. of pixels in the image.
 
     If the path is an invalid image, None is returned instead.
 
@@ -51,7 +49,7 @@ def load_img(
 
 
 def group_by_hash(
-    info_list: list[tuple[Path, bytes, int]],
+    info: Iterator[tuple[Path, bytes, int]],
     /,
 ) -> dict[bytes, list[Path]]:
     """Group list of image info tuples into a dict with hashes as keys.
@@ -62,7 +60,7 @@ def group_by_hash(
     temp_dict: dict[bytes, list[tuple[int, Path]]] = {}
     info_dict: dict[bytes, list[Path]] = {}
 
-    for path, img_hash, size in info_list:
+    for path, img_hash, size in info:
         if img_hash in temp_dict:
             temp_dict[img_hash].append((size, path))
         else:
@@ -137,17 +135,16 @@ def main(args: Namespace) -> None:
         # Use a progressbar for the info loading.
         # Unordered map is used as order is unnecessary.
         # Invalid images are returned as None, so filter them.
-        info = [
-            tup
-            for tup in tqdm(
+        info = filter(
+            lambda i: i is not None,
+            tqdm(
                 pool.imap_unordered(load_img, imgs),
                 desc="Loading",
                 total=len(imgs),
-            )
-            if tup is not None
-        ]
-
-    info_dict = group_by_hash(info)
+            ),
+        )
+        # This is where the loading occurs, so keep it in the pool context
+        info_dict = group_by_hash(info)
 
     # Used for the progress bar
     total = sum(
