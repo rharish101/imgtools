@@ -14,17 +14,17 @@ This uses argparse to parse commandline arguments, and sub-parsers for each tool
 
 To run a tool *mytool*, type:
 ```sh
-python -m imgtool mytool [args]...
+imgtools mytool [args]...
 ```
 
 For viewing the usage for a tools *mytool*, type:
 ```sh
-python -m imgtool mytool --help
+imgtools mytool --help
 ```
 
 For viewing the usage for the module itself, type:
 ```sh
-python -m imgtool --help
+imgtools --help
 ```
 
 ## Setup

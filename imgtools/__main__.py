@@ -13,12 +13,7 @@ MODE_TO_TOOL: Final = {
 }
 
 
-parser = ArgumentParser(
-    description="Collection of tools that work on images",
-    prog=None
-    if __spec__ is None  # type:ignore
-    else "python -m {}".format(__spec__.name.partition(".")[0]),  # type:ignore
-)
+parser = ArgumentParser(description="Collection of tools that work on images")
 subparsers = parser.add_subparsers(
     dest="tool", help="the choice of the image tool"
 )
