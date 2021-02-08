@@ -15,7 +15,7 @@ WIN_SIZE: Final = 7
 SSIM_THRESH: Final = 0.9  # SSIM threshold for marking as duplicate
 
 
-def dhash(img: np.ndarray, bits: int = 64) -> bytes:
+def dhash(img: np.ndarray, /, bits: int = 64) -> bytes:
     """Compute d-hash of an image.
 
     Args:
@@ -46,7 +46,7 @@ def dhash(img: np.ndarray, bits: int = 64) -> bytes:
 
 
 def _preprocess(
-    img: Image.Image, size: tuple[int, int] = SSIM_SIZE
+    img: Image.Image, /, *, size: tuple[int, int] = SSIM_SIZE
 ) -> np.ndarray:
     """Pre-process the image for SSIM.
 
@@ -66,7 +66,7 @@ def _preprocess(
     return np.array(img) / 255.0
 
 
-def _filter(img: np.ndarray) -> np.ndarray:
+def _filter(img: np.ndarray, /) -> np.ndarray:
     """Apply a uniform filter to the image.
 
     Args:
@@ -81,7 +81,7 @@ def _filter(img: np.ndarray) -> np.ndarray:
     return np.array(filtered) / 255.0
 
 
-def ssim(img1: Image.Image, img2: Image.Image) -> float:
+def ssim(img1: Image.Image, img2: Image.Image, /) -> float:
     """Compute the mean structural similarity index between two images.
 
     This code was adapted from the SSIM code in the scikit-image library:

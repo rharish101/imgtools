@@ -18,7 +18,7 @@ HASH_BITS: Final = 16  # bits for the image hash
 
 
 def load_img(
-    path: Path, *, hash_bits: int = HASH_BITS
+    path: Path, /, *, hash_bits: int = HASH_BITS
 ) -> Optional[tuple[Path, bytes, int]]:
     """Load the image given the path and return the image info.
 
