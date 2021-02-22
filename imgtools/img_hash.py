@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Compute the difference hash (d-hash) of an image."""
 from argparse import Namespace
 from binascii import hexlify

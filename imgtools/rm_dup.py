@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Delete all duplicate images in a directory."""
 from argparse import Namespace
 from multiprocessing import Pool

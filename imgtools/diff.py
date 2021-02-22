@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 """Compare two images using Multi-Scale SSIM."""
 from argparse import Namespace
 
