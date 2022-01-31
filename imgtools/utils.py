@@ -26,7 +26,7 @@ def dhash(img: np.ndarray, /, bits: int = 64) -> bytes:
         The d-hash of the image
     """
     width = int(np.sqrt(bits))
-    if width ** 2 != bits:
+    if width**2 != bits:
         raise ValueError("Number of bits must be a perfect square")
 
     pillow = Image.fromarray(img)
@@ -98,7 +98,7 @@ def ssim(img1: Image.Image, img2: Image.Image, /) -> float:
     arr2 = _preprocess(img2)
 
     # Filter is already normalized by NP
-    NP = WIN_SIZE ** 2
+    NP = WIN_SIZE**2
     cov_norm = NP / (NP - 1)  # sample covariance
 
     # Compute (weighted) means
@@ -113,12 +113,12 @@ def ssim(img1: Image.Image, img2: Image.Image, /) -> float:
     vy = cov_norm * (uyy - uy * uy)
     vxy = cov_norm * (uxy - ux * uy)
 
-    C1 = K1 ** 2
-    C2 = K2 ** 2
+    C1 = K1**2
+    C2 = K2**2
 
     A1 = 2 * ux * uy + C1
     A2 = 2 * vxy + C2
-    B1 = ux ** 2 + uy ** 2 + C1
+    B1 = ux**2 + uy**2 + C1
     B2 = vx + vy + C2
     D = B1 * B2
     S = (A1 * A2) / D
