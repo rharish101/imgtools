@@ -10,7 +10,7 @@ repos:
     hooks:
       - id: isort
   - repo: https://github.com/PyCQA/flake8
-    rev: 5.0.2
+    rev: 5.0.4
     hooks:
       - id: flake8
   - repo: https://github.com/PyCQA/pydocstyle
@@ -25,3 +25,5 @@ repos:
       - id: mypy
         additional_dependencies:
           - types-toml
+ci:
+  autoupdate_schedule: quarterly
