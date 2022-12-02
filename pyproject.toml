@@ -8,6 +8,9 @@ line_length = 79
 [tool.pydocstyle]
 convention = "google"
 
+[tool.mypy]
+ignore_missing_imports = true
+
 [tool.poetry]
 name = "imgtools"
 version = "0.1.0"
