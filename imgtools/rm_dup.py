@@ -2,7 +2,7 @@
 from argparse import Namespace
 from multiprocessing import Pool
 from pathlib import Path
-from typing import Final, Iterator, Optional
+from typing import Final, Iterator
 from warnings import warn
 
 import numpy as np
@@ -18,7 +18,7 @@ HASH_BITS: Final = 16  # bits for the image hash
 
 def load_img(
     path: Path, /, *, hash_bits: int = HASH_BITS
-) -> Optional[tuple[Path, bytes, int]]:
+) -> tuple[Path, bytes, int] | None:
     """Load the image given the path and return the image info.
 
     The info for each image is a tuple containing the input path, the hash of

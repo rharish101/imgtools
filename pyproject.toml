@@ -19,7 +19,7 @@ authors = ["Harish Rajagopal <harish.rajagopals@gmail.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 numpy = "^1.19.5"
 Pillow = "^8.1.0"
 tqdm = "^4.56.0"
