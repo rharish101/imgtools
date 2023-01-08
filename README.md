@@ -1,5 +1,7 @@
 # imgtools
 
+**Unmaintained**: I've switched to using [Czkawka](https://github.com/qarmin/czkawka).
+
 This is a collection of ~~hacky scripts~~ tools for images, intended for my personal use.
 Currently this consists of:
 
